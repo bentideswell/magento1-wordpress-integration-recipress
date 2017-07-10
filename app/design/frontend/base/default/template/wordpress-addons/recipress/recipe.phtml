@@ -1,0 +1,86 @@
+<?php
+/**
+ * @category		Fishpig
+ * @package		Fishpig_Wordpress
+ * @license		http://fishpig.co.uk/license.txt
+ * @author		Ben Tideswell <help@fishpig.co.uk>
+ */
+?>
+<?php if ($this->canDisplay()): ?>
+<?php $helper = Mage::helper('wp_addon_recipress') ?>
+<?php if ($recipe = $this->getRecipe()): ?>
+<?php $post = $recipe->getPost() ?>
+<div id="recipress_recipe" class="hrecipe <?php echo $helper->getTheme() ?>">
+	<h2 class="fn"><?php echo $this->escapeHtml($recipe->getTitle()) ?></h2>
+	<?php if ($recipe->getImageUrl()): ?>
+		<img src="<?php echo $recipe->getImageUrl() ?>" alt="<?php echo $this->escapeHtml($recipe->getTitle()) ?>" class="alignright photo recipress_thumb wp-post-image" />
+	<?php endif; ?>
+	<p class="seo_only">
+		<?php echo $this->__('By') ?> <span class="author"><?php echo $this->escapeHtml($post->getAuthor()->getDisplayName()) ?></span>
+		<?php echo $this->__('Published') ?>: <span class="published updated" title="<?php echo $post->getPostDate('Y-d-mTG:i:sz') ?>"><?php echo $post->getPostDate() ?></span>
+	</p>
+	<ul class="recipe-details">
+		<?php if ($recipe->getYield()): ?>
+		<li>
+			<strong><?php echo $this->__('Yield') ?>:</strong> <span class="yield"><?php echo $this->escapeHtml($recipe->getYield()) ?> (<?php echo $this->__('%d Serving%s', $recipe->getServings(), $recipe->getServings() !== '1' ? 's' : '') ?>)</span>
+		</li>
+		<li class="clear_items"></li>
+		<?php endif; ?>
+		<?php if ($recipe->getPrepTime()): ?>
+			<li>
+				<strong><?php echo $this->__('Prep') ?>:</strong> <span class="preptime"><span title="PT<?php echo $this->getRelativeTimeTitle($recipe->getPrepTime()) ?>" class="value-title"></span><?php echo $this->getRelativeTime($recipe->getPrepTime()) ?></span>
+			</li>
+		<?php endif; ?>
+		<?php if ($recipe->getCookTime()): ?>
+			<li>
+				<strong><?php echo $this->__('Cook') ?>:</strong> <span class="cooktime"><span title="PT<?php echo $this->getRelativeTimeTitle($recipe->getCookTime()) ?>" class="value-title"></span><?php echo $this->getRelativeTime($recipe->getCookTime()) ?></span>
+			</li>
+		<?php endif; ?>
+		<?php if ($recipe->getTotalTime()): ?>
+		<li>
+			<strong><?php echo $this->__('Ready In') ?>:</strong> <span class="duration"><span title="PT<?php echo $this->getRelativeTimeTitle($recipe->getTotalTime()) ?>" class="value-title"></span><?php echo $this->getRelativeTime($recipe->getTotalTime()) ?></span>
+		</li>
+		<?php endif; ?>
+	</ul>
+	<?php if ($recipe->getSummary()): ?>
+		<p class="summary"><?php echo $this->escapeHtml($recipe->getSummary()) ?></p>
+	<?php endif; ?>
+	<?php if ($recipe->getIngredients()): ?>
+		<h3><?php echo $this->__('Ingredients') ?></h3>
+		<ul class="ingredients">
+		<?php foreach($recipe->getIngredients() as $ingredient): ?>
+			<li class="ingredient">
+				<span class="amount"><?php echo $this->escapeHtml($ingredient->getAmount()) ?> <?php echo $this->escapeHtml($ingredient->getMeasurement()) ?></span> <span class="name"><a href="<?php echo $ingredient->getIngredientUrl() ?>"><?php echo $this->escapeHtml($ingredient->getIngredient()) ?></a></span> <em class="notes"><?php echo $this->escapeHtml($ingredient->getNotes()) ?></em>
+			</li>
+		<?php endforeach; ?>
+	</ul>
+	<?php endif; ?>
+	<?php if ($recipe->getInstructions()): ?>
+		<h3><?php echo $this->__('Instructions') ?></h3>
+		<ol class="instructions">
+			<?php foreach($recipe->getInstructions() as $instruction): ?>
+				<li>
+					<?php echo $this->escapeHtml($instruction->getDescription()) ?>
+					<?php if ($image = $instruction->getImage()): ?>
+						<br /><img width="<?php echo $image->getWidth() ?>" height="<?php echo $image->getHeight() ?>" alt="<?php echo $this->escapeHtml($image->getPostTitle()) ?>" class="align-large" src="<?php echo $image->getFullSizeImage() ?>" />
+					<?php endif; ?>
+				</li>
+			<?php endforeach; ?>
+		</ol>
+	<?php endif; ?>
+	<?php if ($recipe->hasMeta()): ?>
+		<ul class="recipe-taxes">
+			<?php if (($cuisine = $recipe->getCuisine()) !== false): ?>
+				<li><strong><?php echo $this->__('Cuisine') ?>:</strong> <a rel="tag" href="<?php echo $cuisine->getUrl() ?>"><?php echo $this->escapeHtml($cuisine->getName()) ?></a></li>
+			<?php endif; ?>
+			<?php if (($course = $recipe->getCourse()) !== false): ?>
+				<li><strong><?php echo $this->__('Course') ?>:</strong> <a rel="tag" href="<?php echo $course->getUrl() ?>"><?php echo $this->escapeHtml($course->getName()) ?></a></li>
+			<?php endif; ?>
+			<?php if (($skillLevel = $recipe->getSkillLevel()) !== false): ?>
+				<li><strong><?php echo $this->__('Skill Level') ?>:</strong> <a rel="tag" href="<?php echo $skillLevel->getUrl() ?>"><?php echo $this->escapeHtml($skillLevel->getName()) ?></a></li>
+			<?php endif; ?>
+		</ul>
+	<?php endif; ?>
+</div>
+<?php endif; ?>
+<?php endif; ?>

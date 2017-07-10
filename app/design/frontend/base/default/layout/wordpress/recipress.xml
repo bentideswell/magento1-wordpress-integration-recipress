@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout>
+<!--
+/**
+ * @category    	Fishpig
+ * @package     Fishpig_Wordpress
+ * @license     	http://fishpig.co.uk/license.txt
+ * @author      	Ben Tideswell <help@fishpig.co.uk>
+ */
+-->
+
+	<default>
+		<reference name="head">
+			<block type="core/template" name="wordpress.recipress.css" as="recipress_head" after="wordpress.blog.feed" template="wordpress-addons/recipress/head.phtml" />
+		</reference>
+	</default>
+	
+</layout>

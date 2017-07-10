@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Fishpig_WordPress_Addon_ReciPress</name>
+    <version>1.4.1.0</version>
+    <stability>stable</stability>
+    <license uri="http://fishpig.co.uk/license.txt">FishPig EULA</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>List recipe's using the WordPress plugin ReciPress.</summary>
+    <description>List recipe's using the WordPress plugin ReciPress.</description>
+    <notes>For changes, please see fishpig.co.uk/magento/wordpress-integration/recipress/#changelog</notes>
+    <authors><author><name>fishpig</name><user>fishpig</user><email>ben@fishpig.co.uk</email></author></authors>
+    <date>2016-01-04</date>
+    <time>16:05:01</time>
+    <contents><target name="magecommunity"><dir name="Fishpig"><dir name="Wordpress"><dir name="Addon"><dir name="ReciPress"><dir name="Block"><file name="Recipe.php" hash="ef4df74ed28dc233a5202e116dfcc915"/><dir name="Sidebar"><dir name="Widget"><file name="Recent.php" hash="9496e7b56e31705b3d43831fcf237b50"/><file name="Terms.php" hash="339aa32a519f6874203329b3bc71fbab"/></dir></dir><dir name="System"><dir name="Config"><dir name="Form"><dir name="Field"><file name="License.php" hash="eb4724327a8f48f4ac761324673abac5"/></dir></dir></dir></dir></dir><dir name="Helper"><file name="Data.php" hash="80d5f3c0b48570046410bf427db48395"/><file name="License.php" hash="3613e121f7afa671b3f8c0b0f2606c70"/><dir name="Shortcode"><file name="Recipe.php" hash="002df69f5894e554ab3d671eb237b0b8"/></dir></dir><dir name="Model"><file name="Recipe.php" hash="e184b6eec686ba45c4180d5db9de7214"/><dir name="Resource"><file name="Recipe.php" hash="54c8db96099a520b53a1cfd938eafc26"/></dir></dir><dir name="etc"><file name="config.xml" hash="a2f0601c0cc427e87a17b43eef0434f0"/><file name="system.xml" hash="ca7a640bed15baa74247168254cc959c"/></dir></dir></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="template"><dir name="wordpress-addons"><dir name="recipress"><file name="head.phtml" hash="f09fa8572986ef15e0663e18cca390d5"/><file name="recipe.phtml" hash="9c124c18a912e0924c81f01eb760ebd8"/><dir name="widget"><file name="recent.phtml" hash="8b5fca74c96e17b9804fe83e6da0c204"/><file name="terms.phtml" hash="4cf9427da94531d89133b2964b3b2bb7"/></dir></dir></dir></dir><dir name="layout"><dir name="wordpress"><file name="recipress.xml" hash="b9099551984f59fceefddf87c00fd942"/></dir></dir></dir></dir></dir></target><target name="mageweb"><dir name="app"><dir name="etc"><dir name="modules"><file name="Fishpig_Wordpress_Addon_ReciPress.xml" hash="1c2306483d94a6e0265507eaf4c65d87"/></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>8.0.0</max></php></required></dependencies>
+</package>

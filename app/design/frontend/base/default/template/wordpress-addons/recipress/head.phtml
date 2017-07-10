@@ -1,0 +1,12 @@
+<?php
+/**
+ * @category		Fishpig
+ * @package		Fishpig_Wordpress
+ * @license		http://fishpig.co.uk/license.txt
+ * @author		Ben Tideswell <help@fishpig.co.uk>
+ */
+?>
+<?php if (Mage::helper('wp_addon_recipress')->isEnabled()): ?>
+<?php $cssFile = rtrim($this->helper('wordpress')->getWpOption('siteurl'), '/') . '/wp-content/plugins/recipress/css/front.css?ver=3.4.2' ?>
+<link rel="stylesheet" type="text/css" href="<?php echo $cssFile ?>" media="all" />
+<?php endif; ?>
